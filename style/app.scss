@@ -8,35 +8,86 @@ body {
     background: #14181E;
     font-family: 'Josefin Sans', sans-serif;
     overflow-x: hidden;
+    &.hide {
+        overflow: hidden;
+    }
 }
+
 .nav-header{
+    position: relative;
     min-height: 10vh;
-    font-size: 1.2rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: whitesmoke;
-    width: 80%;
-    max-width: 1800px;
+    width: 100%;
+    max-width: 1750px;
     margin: auto;
     padding: 2rem 0rem;
+    z-index: 2;
     #logo-div{
         line-height: 2rem;
         .logo{
             color: whitesmoke;
             text-decoration: none;
+            transition: all 0.5s ease-in-out;
             // font-family: 'Abril Fatface', cursive;
         }
         h4 {
             font-weight: 300;
         }
     }
-    
     .burger {
         cursor: pointer;
-        img {
-            pointer-events: none;
-            height: 1.5rem;
+        width: 65px;
+        .ham {
+            display: inline-block;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 600ms;
+            user-select: none;
+            width: 100%;
+            height: 100%;
+            .line {
+                fill:none;
+                transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+                stroke:rgb(240, 240, 240);
+                stroke-width:5;
+                stroke-linecap:round;
+            }
+            .top {
+                stroke-dasharray: 40 160;
+            }
+            .middle {
+                stroke-dasharray: 40 142;
+                transform-origin: 50%;
+                transition: transform 400ms;
+                stroke:rgb(145, 145, 145);
+            }
+            .bottom {
+                stroke-dasharray: 40 85;
+                transform-origin: 50%;
+                transition: transform 400ms, stroke-dashoffset 400ms;
+            }
+        }
+        
+        .hamRotate.active {
+            transform: rotate(45deg);
+            .line {
+                transition: all 0.7s ease-in-out;
+                stroke:rgb(19, 19, 19);
+            }
+            .top {
+                stroke-dashoffset: -64px;
+            }
+            .middle {
+                //stroke-dashoffset: -20px;
+                transform: rotate(90deg);
+            }
+            .bottom {
+                stroke-dashoffset: -64px;
+            }
         }
     }
 }
@@ -76,11 +127,16 @@ body {
     }
 }
 
+main {
+    max-width: 1750px;
+    margin: auto;
+}
+
 .slide {
     min-height: 100vh;
     margin: 0 auto 0 auto;
-    width: 80%;
-    max-width: 1800px;
+    width: 100%;
+    // max-width: 1800px;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -107,6 +163,8 @@ body {
         padding-left: 5rem;
         position: relative;
         .title {
+            position: relative;
+            overflow: hidden;
             h2 {
                 font-family: 'Abril Fatface', cursive;
                 font-size: 4rem;
@@ -115,38 +173,71 @@ body {
                     color: #517FC5;
                 }
             }
+
+            .title-swipe{
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: absolute;
+                mix-blend-mode: darken;
+                transform: translateY(100%);
+            }
+            .t-swipe1 {
+                background: #517FC5;
+            }
+            .t-swipe2 {
+                background: #917cdd;
+            }
+            .t-swipe3 {
+                background: #51c57e;
+            }
         }
+
         p {
             padding: 3rem 0;
             font-size: 1.5rem;
             color: whitesmoke;
-            font-weight: 300;
+            font-weight: 200;
             line-height: 2rem;
+            span {
+                background: linear-gradient(135deg, rgba(0,146,70,1) 0%, rgba(242,242,242,1) 47%, rgba(206,43,55,1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+            }
         }
+
         .explore {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: 300;
             padding: 1rem 2rem;
             background: none;
             border: none;
             color: whitesmoke;
             border: 1px solid whitesmoke;
-            font-size: 1rem;
             text-decoration: none;
             align-self: flex-start;
             cursor: pointer;
-            h4 {
-                font-size: 1rem;
-                font-weight: 300;
+            img {
+                height: 35px;
+                margin-left: 0.5rem;
             }
         }
     }
 }
+
 .reveal-img,.reveal-text {
     position: absolute;
-    width: 200%;
-    height: 200%;
+    width: 150%;
+    height: 150%;
     background: #14181E;
     left: 0;
-    top: -25%;
+    top: -15%;
 }
 
 .web-span {
@@ -163,8 +254,44 @@ body {
     height: 2rem;
     border: 2px solid whitesmoke;
     border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+    transition-property: background, transform;
+    transform-origin: 90% 90%;
+    &.nav-active{
+        background: #517FC5;
+        transform: scale(2);
+    }
+    &.explore-active{
+        background: whitesmoke;
+        transform: scale(2);
+    }
+    .cursor-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 0.5rem;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .scrollmagic-pin-spacer {
     position: static !important;
+}
+
+
+/* Other Pages */
+
+.webdev1, .webdev2, .webdev3 {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    color: whitesmoke;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    position: relative;
 }

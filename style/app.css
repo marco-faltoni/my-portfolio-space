@@ -11,9 +11,14 @@ body {
   overflow-x: hidden;
 }
 
+body.hide {
+  overflow: hidden;
+}
+
 .nav-header {
+  position: relative;
   min-height: 10vh;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,10 +29,11 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: whitesmoke;
-  width: 80%;
-  max-width: 1800px;
+  width: 100%;
+  max-width: 1750px;
   margin: auto;
   padding: 2rem 0rem;
+  z-index: 2;
 }
 
 .nav-header #logo-div {
@@ -37,6 +43,8 @@ body {
 .nav-header #logo-div .logo {
   color: whitesmoke;
   text-decoration: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .nav-header #logo-div h4 {
@@ -45,11 +53,81 @@ body {
 
 .nav-header .burger {
   cursor: pointer;
+  width: 65px;
 }
 
-.nav-header .burger img {
-  pointer-events: none;
-  height: 1.5rem;
+.nav-header .burger .ham {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: -webkit-transform 600ms;
+  transition: -webkit-transform 600ms;
+  transition: transform 600ms;
+  transition: transform 600ms, -webkit-transform 600ms;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-header .burger .ham .line {
+  fill: none;
+  -webkit-transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #f0f0f0;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.nav-header .burger .ham .top {
+  stroke-dasharray: 40 160;
+}
+
+.nav-header .burger .ham .middle {
+  stroke-dasharray: 40 142;
+  -webkit-transform-origin: 50%;
+          transform-origin: 50%;
+  -webkit-transition: -webkit-transform 400ms;
+  transition: -webkit-transform 400ms;
+  transition: transform 400ms;
+  transition: transform 400ms, -webkit-transform 400ms;
+  stroke: #919191;
+}
+
+.nav-header .burger .ham .bottom {
+  stroke-dasharray: 40 85;
+  -webkit-transform-origin: 50%;
+          transform-origin: 50%;
+  -webkit-transition: stroke-dashoffset 400ms, -webkit-transform 400ms;
+  transition: stroke-dashoffset 400ms, -webkit-transform 400ms;
+  transition: transform 400ms, stroke-dashoffset 400ms;
+  transition: transform 400ms, stroke-dashoffset 400ms, -webkit-transform 400ms;
+}
+
+.nav-header .burger .hamRotate.active {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.nav-header .burger .hamRotate.active .line {
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+  stroke: #131313;
+}
+
+.nav-header .burger .hamRotate.active .top {
+  stroke-dashoffset: -64px;
+}
+
+.nav-header .burger .hamRotate.active .middle {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.nav-header .burger .hamRotate.active .bottom {
+  stroke-dashoffset: -64px;
 }
 
 .nav-bar {
@@ -100,11 +178,15 @@ body {
   line-height: 2rem;
 }
 
+main {
+  max-width: 1750px;
+  margin: auto;
+}
+
 .slide {
   min-height: 100vh;
   margin: 0 auto 0 auto;
-  width: 80%;
-  max-width: 1800px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,6 +237,11 @@ body {
   position: relative;
 }
 
+.slide .jumbo-description .title {
+  position: relative;
+  overflow: hidden;
+}
+
 .slide .jumbo-description .title h2 {
   font-family: 'Abril Fatface', cursive;
   font-size: 4rem;
@@ -165,39 +252,78 @@ body {
   color: #517FC5;
 }
 
+.slide .jumbo-description .title .title-swipe {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  mix-blend-mode: darken;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.slide .jumbo-description .title .t-swipe1 {
+  background: #517FC5;
+}
+
+.slide .jumbo-description .title .t-swipe2 {
+  background: #917cdd;
+}
+
+.slide .jumbo-description .title .t-swipe3 {
+  background: #51c57e;
+}
+
 .slide .jumbo-description p {
   padding: 3rem 0;
   font-size: 1.5rem;
   color: whitesmoke;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 2rem;
 }
 
+.slide .jumbo-description p span {
+  background: linear-gradient(135deg, #009246 0%, #f2f2f2 47%, #ce2b37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 .slide .jumbo-description .explore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 300;
   padding: 1rem 2rem;
   background: none;
   border: none;
   color: whitesmoke;
   border: 1px solid whitesmoke;
-  font-size: 1rem;
   text-decoration: none;
   -ms-flex-item-align: start;
       align-self: flex-start;
   cursor: pointer;
 }
 
-.slide .jumbo-description .explore h4 {
-  font-size: 1rem;
-  font-weight: 300;
+.slide .jumbo-description .explore img {
+  height: 35px;
+  margin-left: 0.5rem;
 }
 
 .reveal-img, .reveal-text {
   position: absolute;
-  width: 200%;
-  height: 200%;
+  width: 150%;
+  height: 150%;
   background: #14181E;
   left: 0;
-  top: -25%;
+  top: -15%;
 }
 
 .web-span {
@@ -214,9 +340,62 @@ body {
   height: 2rem;
   border: 2px solid whitesmoke;
   border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  pointer-events: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition-property: background, -webkit-transform;
+  transition-property: background, -webkit-transform;
+  transition-property: background, transform;
+  transition-property: background, transform, -webkit-transform;
+  -webkit-transform-origin: 90% 90%;
+          transform-origin: 90% 90%;
+}
+
+.cursor.nav-active {
+  background: #517FC5;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.cursor.explore-active {
+  background: whitesmoke;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.cursor .cursor-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.5rem;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .scrollmagic-pin-spacer {
   position: static !important;
+}
+
+/* Other Pages */
+.webdev1, .webdev2, .webdev3 {
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+  margin: auto;
+  color: whitesmoke;
+  margin-top: 5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
 }
 /*# sourceMappingURL=app.css.map */
