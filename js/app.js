@@ -107,9 +107,55 @@ function navToggle(e) {
     }
     
 }
+// barba page transition
+const logo = document.querySelectorAll('.logo');
+barba.init({
+    views: [
+        {
+            namespace: 'home',
+            beforeEnter(){
+                animateSlides();
+                logo.href = './index.html'
+            },
+            beforeLeave(){
+                sildeScene.destroy();
+                pageScene.destroy();
+                controller.destroy();
+            }
+        },
+        { 
+            namespace: 'webdev',
+            beforeEnter(){
+                logo.href = '../index.html',
+                gsap.fromTo('.nav-header', 1, {y: '-100%'}, {y:'0%', ease: 'power2.inOut'})
+            },
+        }
+    ],
+    transitions: [
+        {
+            leave({current, next}){
+                let done = this.async();
+                // an animation
+                const tl = gsap.timeline({defaults: {duration:1, ease: 'power2.inOut'}});
+                tl.fromTo(current.container, 1, {opacity: 1}, {opacity: 0});
+                tl.fromTo('.swipe', 0.75, {x: '-100%'}, {x: '0%', onComplete: done}, '-=0.5');
+            },
+            enter({current, next}){
+                let done = this.async();
+                // scroll to the top
+                window.scrollTo(0, 0);
+                // an animation
+                const tl = gsap.timeline({defaults: {duration:1, ease: 'power2.inOut'}});
+                tl.fromTo(next.container, 1, {opacity: 0}, {opacity: 1});
+                tl.fromTo('.swipe', 1, {x: '0%'}, {x: '100%', stagger:0.2, onComplete: done}, '-=1');
+            },
+        }
+    ]
+})
 
+
+burger.addEventListener('click', navToggle);
 window.addEventListener('mousemove', cursor);
 window.addEventListener('mousemove', activeCursor);
-burger.addEventListener('click', navToggle);
 
-animateSlides();
+

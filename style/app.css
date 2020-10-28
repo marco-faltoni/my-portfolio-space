@@ -9,6 +9,7 @@ body {
   background: #14181E;
   font-family: 'Josefin Sans', sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
 body.hide {
@@ -29,8 +30,7 @@ body.hide {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: whitesmoke;
-  width: 100%;
-  max-width: 1750px;
+  width: 80%;
   margin: auto;
   padding: 2rem 0rem;
   z-index: 2;
@@ -179,14 +179,13 @@ body.hide {
 }
 
 main {
-  max-width: 1750px;
-  margin: auto;
+  position: absolute;
 }
 
 .slide {
   min-height: 100vh;
   margin: 0 auto 0 auto;
-  width: 100%;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -397,5 +396,86 @@ main {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: relative;
+}
+
+.webdev1 .webdev-image, .webdev2 .webdev-image, .webdev3 .webdev-image {
+  height: 70vh;
+  -ms-flex-preferred-size: 30rem;
+      flex-basis: 30rem;
+}
+
+.webdev1 .webdev-image img, .webdev2 .webdev-image img, .webdev3 .webdev-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.webdev1 .webdev-text, .webdev2 .webdev-text, .webdev3 .webdev-text {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-preferred-size: 25rem;
+      flex-basis: 25rem;
+}
+
+.webdev1 .webdev-text h1, .webdev2 .webdev-text h1, .webdev3 .webdev-text h1 {
+  font-size: 6rem;
+  padding: 5rem 0rem;
+  font-weight: 300;
+}
+
+.webdev1 .webdev-text p, .webdev2 .webdev-text p, .webdev3 .webdev-text p {
+  font-size: 2rem;
+  padding: 2rem 2rem 0rem 0rem;
+  margin-bottom: 10rem;
+}
+
+.webdev1 .webdev-nr, .webdev2 .webdev-nr, .webdev3 .webdev-nr {
+  font-size: 15rem;
+  position: absolute;
+  left: 39%;
+  bottom: 4.7%;
+  color: whitesmoke;
+  opacity: 0.3;
+  font-weight: 300;
+}
+
+.webdev1 h1 {
+  color: #517FC5;
+}
+
+.webdev2 h1 {
+  color: #917cdd;
+}
+
+.webdev3 h1 {
+  color: #51c57e;
+}
+
+.swipe {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.swipe1 {
+  background: #517FC5;
+  z-index: 5;
+}
+
+.swipe2 {
+  background: #917cdd;
+  z-index: 4;
+}
+
+.swipe3 {
+  background: #51c57e;
+  z-index: 3;
 }
 /*# sourceMappingURL=app.css.map */
