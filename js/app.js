@@ -4,218 +4,223 @@ let pageScene;
 let detailScene;
 
 
-// function animateSlides(){
-//     // inite controller
-//     controller = new ScrollMagic.Controller();
-//     const sliders = document.querySelectorAll('.slide'); 
-//     const nav = document.querySelectorAll('.nav-header');
-//     // loop over each slide
-//     sliders.forEach((slide, index, slides) => {
-//         const revealImg = slide.querySelector('.reveal-img');
-//         const revealText = slide.querySelector('.reveal-text');
-//         const img = slide.querySelector('img');
+function animateSlides(){
+    // inite controller
+    controller = new ScrollMagic.Controller();
+    const sliders = document.querySelectorAll('.slide'); 
+    const nav = document.querySelectorAll('.nav-header');
+    // loop over each slide
+    sliders.forEach((slide, index, slides) => {
+        const revealImg = slide.querySelector('.reveal-img');
+        const revealText = slide.querySelector('.reveal-text');
+        const img = slide.querySelector('img');
         
-//         const slideTl = gsap.timeline({
-//             defaults: {duration:1, ease: 'power2.inOut'}
-//         });
-//         slideTl.fromTo(revealImg, {x: '0%'}, {x: '100%'});
-//         slideTl.fromTo(img, {scale: 2}, {scale: 1}, '-=1');
-//         slideTl.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.75');
-        
-//         // create scene
-//         sildeScene = new ScrollMagic.Scene({
-//             triggerElement: slide,
-//             triggerHook: 0.5,
-//             reverse: false,
-//             // reverse: true,
-//         })
-//         .setTween(slideTl)
-//         // .addIndicators({
-//         //     colorStart: "white",
-//         //     colorTrigger: "white",
-//         //     name: "slide"
-//         // })
-//         .addTo(controller);
-
-//         // // new anim
-//         // const pageTl = gsap.timeline();
-//         // let nextSlide = slides.lenght - 1  === index ? 'end' : slides[index + 1];
-//         // pageTl.fromTo(nextSlide, {y: '0%'}, {y: '25%'});
-//         // pageTl.fromTo(slide, {opacity:1, scale: 1}, {opacity: 0, scale: 0.5});
-//         // pageTl.fromTo(nextSlide, {y: '25%'}, {y: '0%'}, '-=0.5');
-
-//         // // new scene
-//         // pageScene = new ScrollMagic.Scene({
-//         //     triggerElement: slide,
-//         //     duration: '100%',
-//         //     triggerHook: 0,
-//         // })
-//         // .addIndicators({
-//         //     colorStart: "white",
-//         //     colorTrigger: "white",
-//         //     name: "page",
-//         //     indent: 200
-//         // })
-//         // .setPin(slide, {pushFollowers: false})
-//         // .setTween(pageTl)
-//         // .addTo(controller);
-//     })
-// }
-
-function animeSlides(){
-    const sliders = document.querySelectorAll('.slide');
-    // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-    // console.log(vh);
-    // var el = document.querySelector('.viewport')
-
-    // el.style.height = vh;
-    // console.log(el);
-    
-
-    // const homeRevimg = document.querySelector('.home .reveal-img');
-    // const homeRevtext = document.querySelector('.home .reveal-text');
-    // const homeImg = document.querySelector('.home img');
-
-    // const homeTl = gsap.timeline({
-    //     defaults: {duration:1.5, ease: 'power2.inOut'},
-
-    // });
-
-    // homeTl.fromTo(homeRevimg, {x: '0%'}, {x: '100%'});
-    // homeTl.fromTo(homeImg, {scale: 2}, {scale: 1}, '-=1');
-    // homeTl.fromTo(homeRevtext, {x: '0%'}, {x: '100%'}, '-=1.5');
-
-    // let ScrollAmount = document.querySelector('.slide').offsetHeight;
-    // console.log(ScrollAmount);
-    // let ScrollMore = ScrollAmount + 50;
-    // console.log(ScrollMore);
-
-    // gsap.utils.toArray(".slide").forEach((slide, i) => {
-    //     ScrollTrigger.create({
-    //         trigger: slide,
-    //         start: "top top", 
-    //         pin: true, 
-    //         pinSpacing: false,
-    //         markers: true,
-    //         end: () => "+=" + document.querySelector('.slide').offsetHeight,
-    //     });
-    // });
-
-
-
-
-
-    gsap.utils.toArray(".slide").forEach(slide => {
-        let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: slide,
-                start: "top top", 
-                pin: true, 
-                pinSpacing: false,
-                markers: true,
-                end: () => "+=" + document.querySelector('.slide').offsetHeight,
-            },
-            defaults: {duration:1.5, ease: 'power2.inOut'},
+        const slideTl = gsap.timeline({
+            defaults: {duration:1, ease: 'power2.inOut'}
         });
-        tl.fromTo(slide.querySelector(".reveal-img"), {y: '0%'}, {y: '100%'});
-        tl.fromTo(slide.querySelector("img"), {scale: 2}, {scale: 1}, '-=1');
-        tl.fromTo(slide.querySelector(".reveal-text"), {y: '0%'}, {y: '100%'}, '-=1.5');
+        slideTl.fromTo(revealImg, {x: '0%'}, {x: '100%'});
+        slideTl.fromTo(img, {scale: 2}, {scale: 1}, '-=1');
+        slideTl.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.75');
         
-    });
+        // create scene
+        sildeScene = new ScrollMagic.Scene({
+            triggerElement: slide,
+            triggerHook: 0.5,
+            reverse: false,
+            // reverse: true,
+        })
+        .setTween(slideTl)
+        // .addIndicators({
+        //     colorStart: "white",
+        //     colorTrigger: "white",
+        //     name: "slide"
+        // })
+        .addTo(controller);
 
+        // new anim
+        const pageTl = gsap.timeline();
+        let nextSlide = slides.lenght - 1  === index ? 'end' : slides[index + 1];
+        pageTl.fromTo(nextSlide, {y: '0%'}, {y: '25%'});
+        pageTl.fromTo(slide, {opacity:1, scale: 1}, {opacity: 0, scale: 0.5});
+        pageTl.fromTo(nextSlide, {y: '25%'}, {y: '0%'}, '-=0.5');
 
-    // sliders.forEach((slide, index, slides) => {
-    //     // const revealImg = slide.querySelector('.reveal-img');
-    //     // const revealText = slide.querySelector('.reveal-text');
-    //     // const img = slide.querySelector('img');
-
-    //     // const slideTl = gsap.timeline({
-    //     //     defaults: {duration:1.5, ease: 'power2.inOut'},
-    //     // });
-        
-    //     // // slideTl.to(revealImg, {
-    //     // //     x: '100%',
-    //     // //     duration: 1.5
-    //     // // })
-
-    //     // slideTl.fromTo(revealImg, {x: '0%'}, {x: '100%'});
-    //     // slideTl.fromTo(img, {scale: 2}, {scale: 1}, '-=1');
-    //     // slideTl.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.75');
-
-    //     // ScrollTrigger.create({
-    //     //     animation:slideTl,
-    //     //     trigger: slide,
-    //     //     toggleActions: "restart pause none none",
-    //     //     start: "top top",
-    //     //     end: () => "+=" + slide.offsetHeight,
-    //     //     markers: true,
-    //     //     // scrub: true,
-    //     //     // snap: 1 / (sliders.length - 1),
-    //     //     pin: true,
-    //     //     pinSpacing: false
-    //     // });
-        
-
-    //     // let tl = gsap.timeline({
-    //     //     defaults: {duration:1, ease: 'power2.inOut'},
-    //     //     scrollTrigger: {
-    //     //         trigger: slide,
-    //     //         scrub: true,
-    //     //         pin: true,
-    //     //         start: "top top",
-    //     //         end: "+=100%",
-    //     //         toggleActions: "restart pause resume pause"
-    //     //     }
-    //     // })
-    //     // tl.fromTo(nextSlide, { y: "0%" }, { y: "50%" });
-    //     // tl.fromTo(slide, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.5 });
-    //     // tl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.5");
-    //     // tl.fromTo(revealImg, {x: '100%'}, {x: '0%'});
-    //     // tl.fromTo(img, {scale: 1}, {scale: 2}, '-=1');
-    //     // tl.fromTo(revealText, {x: '100%'}, {x: '0%'}, '-=0.75');
-
-    //     // let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
-    //     // let pageTl = gsap.timeline({
-    //     //     defaults: {duration:1, ease: 'power2.inOut'},
-    //     //     scrollTrigger: {
-    //     //         trigger: slide,
-    //     //         scrub: true,
-    //     //         pin: true,
-    //     //         start: "top top",
-    //     //         end: "+=100%"
-    //     //     }
-    //     // })
-        
-    //     // pageTl.fromTo(nextSlide, { y: "0%" }, { y: "50%" });
-    //     // pageTl.fromTo(slide, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.5 });
-    //     // pageTl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.5");
-
-    //     // tl.fromTo(revealImg, {x: '0%'}, {x: '100%'});
-    //     // tl.fromTo(img, {scale: 2}, {scale: 1}, '-=1');
-    //     // tl.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.75');
-
-    //     // // create scene
-    //     // sildeScene = new ScrollMagic.Scene({
-    //     //     triggerElement: slide,
-    //     //     triggerHook: 0.5,
-    //     //     reverse: false,
-    //     //     // reverse: true,
-    //     // })
-    //     // .setTween(slideTl)
-    //     // // .addIndicators({
-    //     // //     colorStart: "white",
-    //     // //     colorTrigger: "white",
-    //     // //     name: "slide"
-    //     // // })
-    //     // .addTo(controller);
-
-    // })
-    
-    
+        // new scene
+        pageScene = new ScrollMagic.Scene({
+            triggerElement: slide,
+            duration: '100%',
+            triggerHook: 0,
+        })
+        // .addIndicators({
+        //     colorStart: "white",
+        //     colorTrigger: "white",
+        //     name: "page",
+        //     indent: 200
+        // })
+        .setPin(slide, {pushFollowers: false})
+        .setTween(pageTl)
+        .addTo(controller);
+    })
 }
 
+// function animeSlides(){ 
+//     const sliders = document.querySelectorAll('.slide'); 
+//     // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); 
+//     // console.log(vh); 
+//     // var el = document.querySelector('.viewport') 
 
-animeSlides();
+//     // el.style.height = vh; 
+//     // console.log(el); 
+    
+
+//     const homeRevimg = document.querySelector('.home .reveal-img'); 
+//     const homeRevtext = document.querySelector('.home .reveal-text'); 
+//     const homeImg = document.querySelector('.home img'); 
+
+//     const homeTl = gsap.timeline({ 
+//         scrollTrigger: { 
+//             trigger: 'slidec', 
+//             start: "top top",  
+//             pin: true,  
+//             pinSpacing: false, 
+//             end: () => "+=" + document.querySelector('.slider').offsetHeight, 
+//         }, 
+//         defaults: {duration:1.5, ease: 'power2.inOut'}, 
+//     }); 
+
+//     homeTl.fromTo(homeRevimg, {x: '0%'}, {x: '100%'}); 
+//     homeTl.fromTo(homeImg, {scale: 2}, {scale: 1}, '-=1'); 
+//     homeTl.fromTo(homeRevtext, {x: '0%'}, {x: '100%'}, '-=1.5'); 
+
+//     // let ScrollAmount = document.querySelector('.slide').offsetHeight; 
+//     // console.log(ScrollAmount); 
+//     // let ScrollMore = ScrollAmount + 50; 
+//     // console.log(ScrollMore); 
+
+//     // gsap.utils.toArray(".slide").forEach((slide, i) => { 
+//     //     ScrollTrigger.create({ 
+//     //         trigger: slide, 
+//     //         start: "top top",  
+//     //         pin: true,  
+//     //         pinSpacing: false, 
+//     //         markers: true, 
+//     //         end: () => "+=" + document.querySelector('.slide').offsetHeight, 
+//     //     }); 
+//     // }); 
+
+
+
+
+
+//     gsap.utils.toArray(".slider").forEach(slide => { 
+//         let tl = gsap.timeline({ 
+//             scrollTrigger: { 
+//                 trigger: slide, 
+//                 start: "top top",  
+//                 pin: true,  
+//                 pinSpacing: false, 
+//                 markers: true, 
+//                 end: () => "+=" + document.querySelector('.slider').offsetHeight, 
+//             }, 
+//             defaults: {duration:1.5, ease: 'power2.inOut'}, 
+//         }); 
+//         tl.fromTo(slide.querySelector(".reveal-img"), {y: '0%'}, {y: '100%'}); 
+//         tl.fromTo(slide.querySelector("img"), {scale: 2}, {scale: 1}, '-=1'); 
+//         tl.fromTo(slide.querySelector(".reveal-text"), {y: '0%'}, {y: '100%'}, '-=1.5'); 
+        
+//     }); 
+
+//     // sliders.forEach((slide, index, slides) => { 
+//     //     // const revealImg = slide.querySelector('.reveal-img'); 
+//     //     // const revealText = slide.querySelector('.reveal-text'); 
+//     //     // const img = slide.querySelector('img'); 
+
+//     //     // const slideTl = gsap.timeline({ 
+//     //     //     defaults: {duration:1.5, ease: 'power2.inOut'}, 
+//     //     // }); 
+
+//     //     // // slideTl.to(revealImg, { 
+//     //     // //     x: '100%', 
+//     //     // //     duration: 1.5 
+//     //     // // }) 
+
+//     //     // slideTl.fromTo(revealImg, {x: '0%'}, {x: '100%'}); 
+//     //     // slideTl.fromTo(img, {scale: 2}, {scale: 1}, '-=1'); 
+//     //     // slideTl.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.75'); 
+
+//     //     // ScrollTrigger.create({ 
+//     //     //     animation:slideTl, 
+//     //     //     trigger: slide, 
+//     //     //     toggleActions: "restart pause none none", 
+//     //     //     start: "top top", 
+//     //     //     end: () => "+=" + slide.offsetHeight, 
+//     //     //     markers: true, 
+//     //     //     // scrub: true, 
+//     //     //     // snap: 1 / (sliders.length - 1), 
+//     //     //     pin: true, 
+//     //     //     pinSpacing: false 
+//     //     // }); 
+    
+
+//     //     // let tl = gsap.timeline({ 
+//     //     //     defaults: {duration:1, ease: 'power2.inOut'}, 
+//     //     //     scrollTrigger: { 
+//     //     //         trigger: slide, 
+//     //     //         scrub: true, 
+//     //     //         pin: true, 
+//     //     //         start: "top top", 
+//     //     //         end: "+=100%", 
+//     //     //         toggleActions: "restart pause resume pause" 
+//     //     //     } 
+//     //     // }) 
+//     //     // tl.fromTo(nextSlide, { y: "0%" }, { y: "50%" }); 
+//     //     // tl.fromTo(slide, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.5 }); 
+//     //     // tl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.5"); 
+//     //     // tl.fromTo(revealImg, {x: '100%'}, {x: '0%'}); 
+//     //     // tl.fromTo(img, {scale: 1}, {scale: 2}, '-=1'); 
+//     //     // tl.fromTo(revealText, {x: '100%'}, {x: '0%'}, '-=0.75'); 
+
+//     //     // let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1]; 
+//     //     // let pageTl = gsap.timeline({ 
+//     //     //     defaults: {duration:1, ease: 'power2.inOut'}, 
+//     //     //     scrollTrigger: { 
+//     //     //         trigger: slide, 
+//     //     //         scrub: true, 
+//     //     //         pin: true, 
+//     //     //         start: "top top", 
+//     //     //         end: "+=100%" 
+//     //     //     } 
+//     //     // }) 
+    
+//     //     // pageTl.fromTo(nextSlide, { y: "0%" }, { y: "50%" }); 
+//     //     // pageTl.fromTo(slide, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.5 }); 
+//     //     // pageTl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.5"); 
+
+//     //     // tl.fromTo(revealImg, {x: '0%'}, {x: '100%'}); 
+//     //     // tl.fromTo(img, {scale: 2}, {scale: 1}, '-=1'); 
+//     //     // tl.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.75'); 
+
+//     //     // // create scene 
+//     //     // sildeScene = new ScrollMagic.Scene({ 
+//     //     //     triggerElement: slide, 
+//     //     //     triggerHook: 0.5, 
+//     //     //     reverse: false, 
+//     //     //     // reverse: true, 
+//     //     // }) 
+//     //     // .setTween(slideTl) 
+//     //     // // .addIndicators({ 
+//     //     // //     colorStart: "white", 
+//     //     // //     colorTrigger: "white", 
+//     //     // //     name: "slide" 
+//     //     // // }) 
+//     //     // .addTo(controller); 
+
+//     // }) 
+    
+
+// } 
+
+
+animateSlides();
 
 
 
