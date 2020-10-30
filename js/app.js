@@ -18,9 +18,9 @@ function animateSlides(){
         const slideTl = gsap.timeline({
             defaults: {duration:1, ease: 'power2.inOut'}
         });
-        slideTl.fromTo(revealImg, {x: '0%'}, {x: '100%'});
+        slideTl.fromTo(revealImg, {y: '0%'}, {y: '100%'});
         slideTl.fromTo(img, {scale: 2}, {scale: 1}, '-=1');
-        slideTl.fromTo(revealText, {x: '0%'}, {x: '100%'}, '-=0.75');
+        slideTl.fromTo(revealText, {y: '0%'}, {y: '100%'}, '-=0.75');
         
         // create scene
         sildeScene = new ScrollMagic.Scene({
