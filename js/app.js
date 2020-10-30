@@ -103,6 +103,8 @@ function animeSlides(){
 
 
 
+
+
     gsap.utils.toArray(".slide").forEach(slide => {
         let tl = gsap.timeline({
             scrollTrigger: {
@@ -115,9 +117,10 @@ function animeSlides(){
             },
             defaults: {duration:1.5, ease: 'power2.inOut'},
         });
-        tl.fromTo(slide.querySelector(".reveal-img"), {x: '0%'}, {x: '100%'});
+        tl.fromTo(slide.querySelector(".reveal-img"), {y: '0%'}, {y: '100%'});
         tl.fromTo(slide.querySelector("img"), {scale: 2}, {scale: 1}, '-=1');
-        tl.fromTo(slide.querySelectorAll(".reveal-text"), {x: '0%'}, {x: '100%'}, '-=1.5');
+        tl.fromTo(slide.querySelector(".reveal-text"), {y: '0%'}, {y: '100%'}, '-=1.5');
+        
     });
 
 
