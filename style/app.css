@@ -45,10 +45,13 @@ body.hide {
   text-decoration: none;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
-.nav-header #logo-div h4 {
+.nav-header #logo-div span {
   font-weight: 300;
+  font-style: italic;
 }
 
 .nav-header .burger {
@@ -183,7 +186,8 @@ main {
 }
 
 .slide {
-  min-height: 100vh;
+  height: 100vh;
+  padding-bottom: 2rem;
   margin: 0 auto 0 auto;
   width: 80%;
   display: -webkit-box;
@@ -200,12 +204,13 @@ main {
 }
 
 .slide .home-img {
+  height: 50%;
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  -ms-flex-preferred-size: 25rem;
-      flex-basis: 25rem;
+  -ms-flex-preferred-size: 35rem;
+      flex-basis: 35rem;
   overflow: hidden;
 }
 
@@ -217,6 +222,7 @@ main {
 }
 
 .slide .jumbo-description {
+  height: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -316,13 +322,13 @@ main {
   margin-left: 0.5rem;
 }
 
-.reveal-img, .reveal-text {
+.reveal-img, .reveal-text, .reveal-text2 {
   position: absolute;
-  width: 150%;
-  height: 150%;
+  width: 100%;
+  height: 100%;
   background: #14181E;
   left: 0;
-  top: -15%;
+  top: 0%;
 }
 
 .web-span {
@@ -371,10 +377,6 @@ main {
   font-size: 0.5rem;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-}
-
-.scrollmagic-pin-spacer {
-  position: static !important;
 }
 
 /* Other Pages */
@@ -477,5 +479,142 @@ main {
 .swipe3 {
   background: #51c57e;
   z-index: 3;
+}
+
+/* Media Queries */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .slide .jumbo-description p {
+    width: 80%;
+    margin: 0 auto 0 auto;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .slide .home-img {
+    height: 40%;
+  }
+  .detail-slide {
+    width: 100%;
+    text-align: center;
+  }
+  .detail-slide .webdev-text h1 {
+    font-size: 2rem;
+    padding: 1rem 0rem;
+  }
+  .detail-slide .webdev-text p {
+    font-size: 1.2rem;
+  }
+  .detail-slide .webdev-nr {
+    font-size: 8rem;
+  }
+  .detail-slide .webdev-image img {
+    height: 50vh;
+    -o-object-position: top;
+       object-position: top;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  main {
+    width: 100%;
+    margin: 0;
+  }
+  main .slide {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  main .slide .home-img {
+    height: 30%;
+  }
+  main .slide .jumbo-description {
+    padding: 0;
+    height: 70%;
+  }
+  main .slide .jumbo-description .title h2 {
+    font-size: 2rem;
+    padding: 1rem 0.5rem;
+  }
+  main .slide .jumbo-description p {
+    padding: 0rem 1rem;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+  main .slide .jumbo-description .explore {
+    width: 60%;
+    margin: auto;
+  }
+  .detail-slide {
+    width: 100%;
+    text-align: center;
+  }
+  .detail-slide .webdev-text h1 {
+    margin: 2rem 0rem;
+  }
+  .detail-slide .webdev-text p {
+    margin-bottom: 5rem;
+    padding: 0;
+  }
+  .detail-slide .webdev-nr {
+    font-size: 8rem;
+  }
+  .nav-bar {
+    display: block;
+    width: 100vw;
+  }
+  .nav-bar .nav-links {
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 8rem;
+  }
+  .nav-bar .nav-links li {
+    padding: 2rem 0rem;
+  }
+  .nav-bar .contact {
+    padding-top: 3rem;
+  }
+  .nav-bar .contact h3 {
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 0;
+  }
+  .nav-bar .contact p {
+    font-size: 1.2rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  .nav-header {
+    font-size: 0.7rem;
+    padding: 1.2rem 0rem;
+  }
+  .nav-header .burger {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  main .slide .home-img {
+    height: 22%;
+  }
+  main .slide .jumbo-description {
+    padding: 0;
+    height: 78%;
+  }
+  main .slide .jumbo-description .title h2 {
+    font-size: 1.3rem;
+    padding: 1rem 0.5rem;
+  }
+  main .slide .jumbo-description p {
+    font-size: 14px;
+    line-height: 1.5rem;
+    text-align: center;
+    padding: 5px;
+  }
+  main .slide .jumbo-description .explore {
+    font-size: 15px;
+    padding: 0.5rem;
+  }
 }
 /*# sourceMappingURL=app.css.map */
