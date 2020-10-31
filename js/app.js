@@ -23,7 +23,7 @@ function animateSlides(){
         const slideTl = gsap.timeline({
             defaults: {duration:1.5, ease: 'power2.inOut'}
         });
-        slideTl.fromTo(revealText, {x: '0%'}, {x: '-200%'}, '+=0.30');
+        slideTl.fromTo(revealText, {x: '0%'}, {x: '-250%'}, '+=0.30');
         slideTl.fromTo(revealImg, {x: '0%'}, {x: '-100%'}, '-=1.5');
         slideTl.fromTo(img, {scale: 2}, {scale: 1}, '-=1');
         
@@ -121,7 +121,8 @@ function navToggle(e) {
         burger.classList.add('active');
         gsap.to('.logo', 0.8, {color: 'black'});
         gsap.to('#logo-div span', 0.8, {color: 'black'});
-        gsap.to('.nav-bar', 1.5, { clipPath: 'circle(3000px at 100% -10%)',  opacity:1});
+        gsap.to('.nav-bar', 1.5, { clipPath: 'circle(3000px at 100% -10%)'});
+        gsap.to('.nav-bar', 2, {  opacity:1});
         document.body.classList.add('hide');
     } else {
         anime.timeline({loop: false})
