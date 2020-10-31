@@ -38,18 +38,25 @@ body.hide {
 
 .nav-header #logo-div {
   line-height: 2rem;
+  pointer-events: none;
 }
 
 .nav-header #logo-div .logo {
+  pointer-events: visible;
   color: whitesmoke;
   text-decoration: none;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+}
+
+.nav-header #logo-div .logo h3 {
   text-transform: uppercase;
   letter-spacing: 3px;
 }
 
-.nav-header #logo-div span {
+.nav-header #logo-div .logo h3 span {
+  text-transform: none;
+  letter-spacing: 0;
   font-weight: 300;
   font-style: italic;
   -webkit-transition: all 0.5s ease-in-out;
@@ -371,13 +378,13 @@ main {
 
 .cursor {
   position: absolute;
-  opacity: 1;
+  opacity: 0;
   width: 2rem;
   height: 2rem;
   border: 2px solid whitesmoke;
   border-radius: 50%;
-  -webkit-transform: translate(-100%, -50%);
-          transform: translate(-100%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   pointer-events: none;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;

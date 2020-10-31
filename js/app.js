@@ -2,6 +2,7 @@ let controller;
 let sildeScene;
 let pageScene;
 let detailScene;
+let cursorCircle;
 // check if device is smartphone/tablet or none
 let isMobile = window.matchMedia("only screen and (max-width: 1024px)").matches;
 
@@ -71,14 +72,17 @@ function cursor(e){
 function activeCursor(e){
     const item = e.target;
     // console.log(item);
+    const hNav = document.querySelector('.logo h3');
+    const spanNav = hNav.querySelector('span');
+    
 
-    if (item.classList.contains('logo') || item.classList.contains('ham')) {
+    if (item == hNav || item == spanNav || item.classList.contains('ham')) {
         mouse.classList.add('nav-active')
     } else {
         mouse.classList.remove('nav-active')
     }
 
-    if (item.classList.contains('explore')) {
+    if (item.classList.contains('explore') || item.classList.contains('pexplore')) {
         mouse.classList.add('explore-active');
         gsap.to('.title-swipe', 1, {y: '0%'});
         mouseTxt.innerText = 'tap';
@@ -90,6 +94,8 @@ function activeCursor(e){
 }
 
 function navToggle(e) {
+
+    // variabili necessarie per animare le voci del menu
     const textWrapper = document.querySelector('.menu-text');
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
     const textWrapper2 = document.querySelector('.menu-text2');
@@ -120,7 +126,7 @@ function navToggle(e) {
         lineHam.setAttribute('d', 'm 30,50 h 40')
         burger.classList.add('active');
         gsap.to('.logo', 0.8, {color: 'black'});
-        gsap.to('#logo-div span', 0.8, {color: 'black'});
+        // gsap.to('#logo-div span', 0.8, {color: 'black'});
         if (isMobile) {
             gsap.to('.nav-bar', 1.5, { clipPath: 'circle(1500px at 100% -10%)'});
         } else {
@@ -149,7 +155,7 @@ function navToggle(e) {
             lineHam.setAttribute('d', 'm 45,50 h 40');
             burger.classList.remove('active');
             gsap.to('.logo', 1.2, {color: 'whitesmoke'});
-            gsap.to('#logo-div span', 0.8, {color: 'whitesmoke'});
+            // gsap.to('#logo-div span', 0.8, {color: 'whitesmoke'});
             document.body.classList.remove('hide');
         }, 1400);
         
@@ -237,13 +243,15 @@ function detailAnimation() {
 
 // events listener
 burger.addEventListener('click', navToggle);
-// if device is not a smartphone active the dynamic cursor pointer
+// if device is not a smartphone or tablet the dynamic cursor pointer is active
 if (!isMobile) {
+    cursorCircle = document.querySelector('.cursor');
+    cursorCircle.style.opacity= '1';
     window.addEventListener('mousemove', cursor);
     window.addEventListener('mousemove', activeCursor);
 } else {
-    let cursor = document.querySelector('.cursor');
-    cursor.style.display= 'none';
+    cursorCircle = document.querySelector('.cursor');
+    cursorCircle.style.display= 'none';
 }
 
 
