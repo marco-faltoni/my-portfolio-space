@@ -121,7 +121,11 @@ function navToggle(e) {
         burger.classList.add('active');
         gsap.to('.logo', 0.8, {color: 'black'});
         gsap.to('#logo-div span', 0.8, {color: 'black'});
-        gsap.to('.nav-bar', 1.5, { clipPath: 'circle(3000px at 100% -10%)'});
+        if (isMobile) {
+            gsap.to('.nav-bar', 1.5, { clipPath: 'circle(1500px at 100% -10%)'});
+        } else {
+            gsap.to('.nav-bar', 1.5, { clipPath: 'circle(3000px at 100% -10%)'});
+        }
         gsap.to('.nav-bar', 2, {  opacity:1});
         document.body.classList.add('hide');
     } else {
@@ -136,7 +140,11 @@ function navToggle(e) {
         });
         setTimeout(function () {
             e.target.classList.remove('active');
-            gsap.to('.nav-bar', 1, {  clipPath: 'circle(50px at 100% -10%)'});
+            if (isMobile) {
+                gsap.to('.nav-bar', 1.5, { clipPath: 'circle(20px at 86.5% 5.5%)'});
+            } else {
+                gsap.to('.nav-bar', 1, {  clipPath: 'circle(20px at 88.5% 5%)'});
+            }
             gsap.to('.nav-bar', 2, {  opacity:0}, '+=2');
             lineHam.setAttribute('d', 'm 45,50 h 40');
             burger.classList.remove('active');
