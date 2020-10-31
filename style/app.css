@@ -567,7 +567,32 @@ main {
   }
   main .slide .jumbo-description p {
     font-size: 1.2rem;
-    padding-top: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  main .slide .jumbo-description .title h2 {
+    font-size: 3rem;
+  }
+  main .slide .jumbo-description p {
+    font-size: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  main .slide .jumbo-description .title h2 {
+    font-size: 2rem;
+  }
+  main .slide .jumbo-description p {
+    font-size: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
     line-height: 1.5rem;
   }
 }
