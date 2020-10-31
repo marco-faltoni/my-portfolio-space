@@ -40,6 +40,7 @@ body {
         span {
             font-weight: 300;
             font-style: italic;
+            transition: all 0.5s ease-in-out;
         }
     }
     .burger {
@@ -116,6 +117,14 @@ body {
             padding: 3rem 0rem;
             text-decoration: none;
             list-style-type: none;
+            a{
+                text-decoration: none;
+                color: #14181E;
+                .letter {
+                    display: inline-block;
+                    line-height: 1em;
+                }
+            }
         }
     }
     .contact {
@@ -127,6 +136,12 @@ body {
         p {
             font-size: 1.5rem;
             line-height: 2rem;
+            font-style: italic;
+            a {
+                display: inline-block;
+                color: #14181E;
+                text-decoration: none;
+            }
         }
     }
 }
@@ -223,7 +238,7 @@ main {
         .explore {
             display: flex;
             align-items: center;
-            font-size: 1.2rem;
+            justify-content: center;
             font-style: italic;
             font-weight: 300;
             padding: 1rem 2rem;
@@ -234,6 +249,10 @@ main {
             text-decoration: none;
             align-self: flex-start;
             cursor: pointer;
+            p {
+                padding: 0;
+                font-size: 1.2rem;
+            }
             img {
                 height: 35px;
                 margin-left: 0.5rem;
@@ -262,6 +281,7 @@ main {
 
 .cursor{
     position: absolute;
+    opacity: 1;
     width: 2rem;
     height: 2rem;
     border: 2px solid whitesmoke;
@@ -383,6 +403,7 @@ main {
             }
         }
     }
+
 }
 
 @media screen and (max-width: 1500px){
@@ -415,6 +436,26 @@ main {
     }
 }
 
+@media screen and (max-width: 1200px) {
+    main {
+        .slide {
+            .jumbo-description {
+                .title {
+                    h2 {
+                        font-size: 3rem;
+                        padding: 1rem 0.5rem;
+                    }
+                }
+                p {
+
+                    font-size: 1.1rem;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 1024px) {
     main {
         width: 100%;
@@ -428,7 +469,7 @@ main {
                 // padding-top: 4rem;
             }
             .jumbo-description {
-                padding: 0;
+                padding: 5rem;
                 height: 70%;
                 .title {
                     h2 {
@@ -445,8 +486,12 @@ main {
                     text-align: center;
                 }
                 .explore {
-                    width: 60%;
-                    margin: auto;
+                    width: 43%;
+                    margin: 0 auto auto auto;
+                    p {
+                        padding: 0;
+                        font-size: 1rem;
+                    }
                 }
             }
         }
@@ -483,7 +528,7 @@ main {
         .contact {
             padding-top: 3rem;
             h3 {
-                font-size: 3rem;
+                font-size: 2rem;
                 text-align: center;
                 padding-bottom: 0;
             }
@@ -503,6 +548,19 @@ main {
     }
 }
 
+@media screen and (max-width: 600px) {
+    main {
+        .slide {
+            .jumbo-description {
+                padding: 0;
+                .explore {
+                    width: 60%;
+                    margin: 0 auto auto auto;
+                }
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 340px){
     main {
@@ -528,8 +586,43 @@ main {
                 .explore {
                     font-size: 15px;
                     padding: 0.5rem;
+                    p {
+                        padding: 0;
+                        font-size: 14px;
+                        text-align: center;
+                    }
                 }
             }
+        }
+    }
+    .nav-bar {
+        .nav-links {
+            font-size: 2rem;
+            text-align: center;
+            padding-top: 8rem;
+            li {
+                padding: 1rem 0rem;
+            }
+        }
+        .contact {
+            padding-top: 1rem;
+            h3 {
+                font-size: 2rem;
+                text-align: center;
+                padding-bottom: 0;
+            }
+            p {
+                font-size: 1.2rem;
+                padding: 1rem;
+                text-align: center;
+            }
+        }
+    }
+    .nav-header{
+        font-size: 0.7rem;
+        padding: 1.2rem 0rem;
+        .burger {
+            width: 50px;
         }
     }
     

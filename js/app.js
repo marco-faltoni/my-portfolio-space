@@ -2,6 +2,9 @@ let controller;
 let sildeScene;
 let pageScene;
 let detailScene;
+// check if device is smartphone/tablet or none
+let isMobile = window.matchMedia("only screen and (max-width: 1024px)").matches;
+
 
 
 function animateSlides(){
@@ -10,6 +13,7 @@ function animateSlides(){
     const sliders = document.querySelectorAll('.slide'); 
     const nav = document.querySelectorAll('.nav-header');
 
+
     // loop over each slide
     sliders.forEach((slide, index, slides) => {
         const revealImg = slide.querySelector('.reveal-img');
@@ -17,11 +21,11 @@ function animateSlides(){
         const img = slide.querySelector('img');
         
         const slideTl = gsap.timeline({
-            defaults: {duration:1, ease: 'power2.inOut'}
+            defaults: {duration:1.5, ease: 'power2.inOut'}
         });
-        slideTl.fromTo(revealImg, {y: '0%'}, {y: '100%'});
+        slideTl.fromTo(revealText, {x: '0%'}, {x: '-200%'}, '+=0.30');
+        slideTl.fromTo(revealImg, {x: '0%'}, {x: '-100%'}, '-=1.5');
         slideTl.fromTo(img, {scale: 2}, {scale: 1}, '-=1');
-        slideTl.fromTo(revealText, {y: '0%'}, {y: '100%'}, '-=0.75');
         
         // create scene
         sildeScene = new ScrollMagic.Scene({
@@ -31,11 +35,6 @@ function animateSlides(){
             // reverse: true,
         })
         .setTween(slideTl)
-        // .addIndicators({
-        //     colorStart: "white",
-        //     colorTrigger: "white",
-        //     name: "slide"
-        // })
         .addTo(controller);
 
         // new anim
@@ -51,12 +50,6 @@ function animateSlides(){
             duration: '100%',
             triggerHook: 0,
         })
-        // .addIndicators({
-        //     colorStart: "white",
-        //     colorTrigger: "white",
-        //     name: "page",
-        //     indent: 200
-        // })
         .setPin(slide, {pushFollowers: false})
         .setTween(pageTl)
         .addTo(controller);
@@ -69,47 +62,86 @@ const mouseTxt = document.querySelector('.cursor-text');
 const burger = document.querySelector('.ham');
 const lineHam = document.querySelector('.middle');
 
-// function cursor(e){
-//     let mouse = document.querySelector('.cursor');
-//     mouse.style.top = e.pageY + 'px';
-//     mouse.style.left = e.pageX + 'px';
-// }
+function cursor(e){
+    let mouse = document.querySelector('.cursor');
+    mouse.style.top = e.pageY + 'px';
+    mouse.style.left = e.pageX + 'px';
+}
 
-// function activeCursor(e){
-//     const item = e.target;
-//     // console.log(item);
+function activeCursor(e){
+    const item = e.target;
+    // console.log(item);
 
-//     if (item.classList.contains('logo') || item.classList.contains('ham')) {
-//         mouse.classList.add('nav-active')
-//     } else {
-//         mouse.classList.remove('nav-active')
-//     }
-//     if (item.classList.contains('explore')) {
-//         mouse.classList.add('explore-active');
-//         gsap.to('.title-swipe', 1, {y: '0%'});
-//         mouseTxt.innerText = 'tap';
-//     } else {
-//         mouse.classList.remove('explore-active');
-//         gsap.to('.title-swipe', 1, {y: '100%'});
-//         mouseTxt.innerText = '';
-//     }
-// }
+    if (item.classList.contains('logo') || item.classList.contains('ham')) {
+        mouse.classList.add('nav-active')
+    } else {
+        mouse.classList.remove('nav-active')
+    }
+
+    if (item.classList.contains('explore')) {
+        mouse.classList.add('explore-active');
+        gsap.to('.title-swipe', 1, {y: '0%'});
+        mouseTxt.innerText = 'tap';
+    } else {
+        mouse.classList.remove('explore-active');
+        gsap.to('.title-swipe', 1, {y: '100%'});
+        mouseTxt.innerText = '';
+    }
+}
 
 function navToggle(e) {
+    const textWrapper = document.querySelector('.menu-text');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    const textWrapper2 = document.querySelector('.menu-text2');
+    textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    const textWrapper3 = document.querySelector('.menu-text3');
+    textWrapper3.innerHTML = textWrapper3.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    const textWrapper4 = document.querySelector('.menu-text4');
+    textWrapper4.innerHTML = textWrapper4.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    const textWrapper5 = document.querySelector('.menu-text5');
+    textWrapper5.innerHTML = textWrapper5.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+
+
     if (!e.target.classList.contains('active')) {
-        e.target.classList.add('active')
+        e.target.classList.add('active');
+
+        anime.timeline({loop: false})
+            .add({
+                targets: '.letter',
+                translateX: [40,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 30 * i
+        })
         lineHam.setAttribute('d', 'm 30,50 h 40')
         burger.classList.add('active');
         gsap.to('.logo', 0.8, {color: 'black'});
-        gsap.to('.nav-bar', 1, {clipPath: 'circle(3000px at 100% -10%)'});
+        gsap.to('#logo-div span', 0.8, {color: 'black'});
+        gsap.to('.nav-bar', 1.5, {clipPath: 'circle(3000px at 100% -10%)'});
         document.body.classList.add('hide');
     } else {
-        e.target.classList.remove('active');
-        gsap.to('.nav-bar', 1, {clipPath: 'circle(50px at 100% -10%)'});
-        lineHam.setAttribute('d', 'm 45,50 h 40');
-        burger.classList.remove('active');
-        gsap.to('.logo', 1.2, {color: 'whitesmoke'});
-        document.body.classList.remove('hide');
+        anime.timeline({loop: false})
+        .add({
+            targets: '.letter',
+            translateX: [0,-30],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 500,
+            delay: (el, i) => 50 + 30 * i
+        });
+        setTimeout(function () {
+            e.target.classList.remove('active');
+            gsap.to('.nav-bar', 1, {clipPath: 'circle(50px at 100% -10%)'});
+            lineHam.setAttribute('d', 'm 45,50 h 40');
+            burger.classList.remove('active');
+            gsap.to('.logo', 1.2, {color: 'whitesmoke'});
+            gsap.to('#logo-div span', 0.8, {color: 'whitesmoke'});
+            document.body.classList.remove('hide');
+        }, 1400);
+        
     }
     
 }
@@ -194,20 +226,27 @@ function detailAnimation() {
 
 // events listener
 burger.addEventListener('click', navToggle);
-    // window.addEventListener('mousemove', cursor);
-    // window.addEventListener('mousemove', activeCursor);
+// if device is not a smartphone active the dynamic cursor pointer
+if (!isMobile) {
+    window.addEventListener('mousemove', cursor);
+    window.addEventListener('mousemove', activeCursor);
+} else {
+    let cursor = document.querySelector('.cursor');
+    cursor.style.display= 'none';
+}
 
 
-        // const slideNav = gsap.timeline({defaults: {duration:2, ease: 'power2.inOut'}});
-        // slideNav.fromTo(nav, {y: '-100%'}, {y: '0%'}, '-=0.5');
-        // // create scene
-        // sildeScene2 = new ScrollMagic.Scene({
-        //     triggerElement: slide,
-        //     triggerHook: 0.25,
-        //     reverse: false
-        // })
-        // .setTween(slideNav)
-        // .addTo(controller);
+
+    // const slideNav = gsap.timeline({defaults: {duration:2, ease: 'power2.inOut'}});
+    // slideNav.fromTo(nav, {y: '-100%'}, {y: '0%'}, '-=0.5');
+    // // create scene
+    // sildeScene2 = new ScrollMagic.Scene({
+    //     triggerElement: slide,
+    //     triggerHook: 0.25,
+    //     reverse: false
+    // })
+    // .setTween(slideNav)
+    // .addTo(controller);
 
 
 
