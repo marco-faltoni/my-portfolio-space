@@ -6,8 +6,6 @@ let cursorCircle;
 // check if device is smartphone/tablet or none
 let isMobile = window.matchMedia("only screen and (max-width: 1024px)").matches;
 
-
-
 function animateSlides(){
     // inite controller
     controller = new ScrollMagic.Controller();
