@@ -77,6 +77,10 @@ body.hide {
   height: 100%;
 }
 
+.nav-header .burger .ham path {
+  pointer-events: none;
+}
+
 .nav-header .burger .ham .line {
   fill: none;
   -webkit-transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
@@ -151,7 +155,7 @@ body.hide {
       -ms-flex-align: center;
           align-items: center;
   z-index: 1;
-  opacity: 1;
+  opacity: 0;
   -webkit-clip-path: circle(50px at 100% -10%);
           clip-path: circle(50px at 100% -10%);
 }

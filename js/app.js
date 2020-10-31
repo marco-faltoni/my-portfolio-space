@@ -104,7 +104,8 @@ function navToggle(e) {
 
 
     if (!e.target.classList.contains('active')) {
-        e.target.classList.add('active');
+        // console.log(e.target);
+        burger.classList.add('active');
 
         anime.timeline({loop: false})
             .add({
@@ -120,7 +121,7 @@ function navToggle(e) {
         burger.classList.add('active');
         gsap.to('.logo', 0.8, {color: 'black'});
         gsap.to('#logo-div span', 0.8, {color: 'black'});
-        gsap.to('.nav-bar', 1.5, {clipPath: 'circle(3000px at 100% -10%)'});
+        gsap.to('.nav-bar', 1.5, { clipPath: 'circle(3000px at 100% -10%)',  opacity:1});
         document.body.classList.add('hide');
     } else {
         anime.timeline({loop: false})
@@ -134,7 +135,8 @@ function navToggle(e) {
         });
         setTimeout(function () {
             e.target.classList.remove('active');
-            gsap.to('.nav-bar', 1, {clipPath: 'circle(50px at 100% -10%)'});
+            gsap.to('.nav-bar', 1, {  clipPath: 'circle(50px at 100% -10%)'});
+            gsap.to('.nav-bar', 2, {  opacity:0}, '+=2');
             lineHam.setAttribute('d', 'm 45,50 h 40');
             burger.classList.remove('active');
             gsap.to('.logo', 1.2, {color: 'whitesmoke'});
