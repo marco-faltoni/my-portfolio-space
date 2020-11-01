@@ -249,6 +249,7 @@ main {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 5px;
 }
 
 .slide .jumbo-description {
@@ -419,7 +420,7 @@ main {
 
 /* Other Pages */
 .webdev1, .webdev2, .webdev3 {
-  min-height: 90vh;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -429,7 +430,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 70%;
+  width: 80%;
   margin: auto;
   color: whitesmoke;
   margin-top: 5rem;
@@ -453,6 +454,14 @@ main {
 
 .webdev1 .webdev-text, .webdev2 .webdev-text, .webdev3 .webdev-text {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -470,13 +479,55 @@ main {
   font-size: 2rem;
   padding: 2rem 2rem 0rem 0rem;
   margin-bottom: 10rem;
+  font-weight: 300;
+}
+
+.webdev1 .webdev-text .explore, .webdev2 .webdev-text .explore, .webdev3 .webdev-text .explore {
+  width: 28%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-style: italic;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  text-decoration: none;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  cursor: pointer;
+}
+
+.webdev1 .webdev-text .explore p, .webdev2 .webdev-text .explore p, .webdev3 .webdev-text .explore p {
+  padding: 0;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.webdev1 .webdev-text .explore img, .webdev2 .webdev-text .explore img, .webdev3 .webdev-text .explore img {
+  height: 35px;
+  margin-left: 0.5rem;
+}
+
+.webdev1 .webdev-text .two, .webdev2 .webdev-text .two, .webdev3 .webdev-text .two {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-left: 1rem;
 }
 
 .webdev1 .webdev-nr, .webdev2 .webdev-nr, .webdev3 .webdev-nr {
   font-size: 15rem;
   position: absolute;
-  left: 39%;
-  bottom: 4.7%;
+  left: 57%;
+  bottom: 8.7%;
   color: whitesmoke;
   opacity: 0.3;
   font-weight: 300;
@@ -541,18 +592,20 @@ main {
     line-height: 1.5rem;
   }
   .detail-slide {
-    width: 100%;
+    width: 80%;
     text-align: center;
   }
   .detail-slide .webdev-text h1 {
-    font-size: 2rem;
+    font-size: 5rem;
     padding: 1rem 0rem;
   }
   .detail-slide .webdev-text p {
     font-size: 1.2rem;
   }
   .detail-slide .webdev-nr {
-    font-size: 8rem;
+    font-size: 10rem;
+    left: 53%;
+    bottom: 28.7%;
   }
   .detail-slide .webdev-image img {
     height: 50vh;
@@ -582,6 +635,26 @@ main {
     padding-top: 0rem;
     padding-bottom: 1rem;
     line-height: 1.5rem;
+  }
+  main .detail-slide {
+    width: 80%;
+  }
+  main .detail-slide .webdev-text h1 {
+    font-size: 4rem;
+    padding: 1rem 0rem;
+  }
+  main .detail-slide .webdev-text p {
+    font-size: 1.1rem;
+  }
+  main .detail-slide .webdev-nr {
+    font-size: 10rem;
+    left: 53%;
+    bottom: 28.7%;
+  }
+  main .detail-slide .webdev-image img {
+    height: 50vh;
+    -o-object-position: top;
+       object-position: top;
   }
 }
 
@@ -621,6 +694,9 @@ main {
   main .slide .home-img {
     height: 30%;
   }
+  main .slide .home-img img {
+    border-radius: 0;
+  }
   main .slide .jumbo-description {
     padding: 5rem;
     height: 70%;
@@ -649,10 +725,12 @@ main {
     text-align: center;
   }
   .detail-slide .webdev-text h1 {
-    margin: 2rem 0rem;
+    margin: 1rem 0rem;
+    margin-bottom: 0rem;
   }
   .detail-slide .webdev-text p {
-    margin-bottom: 5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
     padding: 0;
   }
   .detail-slide .webdev-nr {
@@ -700,6 +778,26 @@ main {
     width: 60%;
     margin: 0 auto auto auto;
   }
+  main .detail-slide {
+    width: 100;
+  }
+  main .detail-slide .webdev-text h1 {
+    font-size: 2rem;
+    padding: 1rem 0rem;
+  }
+  main .detail-slide .webdev-text p {
+    font-size: 1rem;
+  }
+  main .detail-slide .webdev-nr {
+    font-size: 5rem;
+    left: 68%;
+    bottom: 13.7%;
+  }
+  main .detail-slide .webdev-image img {
+    height: 50vh;
+    -o-object-position: top;
+       object-position: top;
+  }
 }
 
 @media screen and (max-width: 340px) {
@@ -728,6 +826,9 @@ main {
     padding: 0;
     font-size: 14px;
     text-align: center;
+  }
+  main .detail-slide .webdev-nr {
+    bottom: 5.7%;
   }
   .nav-bar .nav-links {
     font-size: 2rem;

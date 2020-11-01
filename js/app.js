@@ -72,6 +72,7 @@ function activeCursor(e){
     // console.log(item);
     const hNav = document.querySelector('.logo h3');
     const spanNav = hNav.querySelector('span');
+
     
 
     if (item == hNav || item == spanNav || item.classList.contains('ham')) {
@@ -219,7 +220,9 @@ barba.init({
 function detailAnimation() {
     controller = new ScrollMagic.Controller();
     const slides = document.querySelectorAll('.detail-slide');
+
     slides.forEach((slide, index, slides) => {
+        
         const slideTl = gsap.timeline({ defaults: {duration:1} });
         let nextSlide = slides.lenght - 1  === index ? 'end' : slides[index + 1];
         const nextImg = nextSlide.querySelector('img');

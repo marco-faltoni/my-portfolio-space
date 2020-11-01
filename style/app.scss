@@ -186,6 +186,7 @@ main {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 5px;
         }
     }
     .jumbo-description {
@@ -323,14 +324,16 @@ main {
 //     overflow: hidden !important;
 // }
 
+
+
 /* Other Pages */
 
 .webdev1, .webdev2, .webdev3 {
-    min-height: 90vh;
+    height: 100vh;
     display : flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 80%;
     margin: auto;
     color: whitesmoke;
     margin-top: 5rem;
@@ -347,6 +350,9 @@ main {
     }
     .webdev-text{
         position: relative;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
         flex: 1;
         flex-basis: 25rem;
         h1 {
@@ -358,17 +364,48 @@ main {
             font-size: 2rem;
             padding: 2rem 2rem 0rem 0rem;
             margin-bottom: 10rem;
+            font-weight: 300;
+        }
+        .explore {
+            width: 28%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            color: whitesmoke;
+            border: 1px solid whitesmoke;
+            text-decoration: none;
+            align-self: flex-start;
+            cursor: pointer;
+            p {
+                padding: 0;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+            img {
+                height: 35px;
+                margin-left: 0.5rem;
+            }
+        }
+        .two {
+            align-self: flex-end;
+            margin-left: 1rem;
         }
     }
     .webdev-nr {
         font-size: 15rem;
         position: absolute;
-        left: 39%;
-        bottom: 4.7%;
+        left: 57%;
+        bottom: 8.7%;
         color: whitesmoke;
         opacity: 0.3;
         font-weight: 300;
     }
+    
 }
 
 .webdev1 h1 {
@@ -434,11 +471,11 @@ main {
     
 
     .detail-slide {
-        width: 100%;
+        width: 80%;
         text-align: center;
         .webdev-text {
             h1 {
-                font-size: 2rem;
+                font-size: 5rem;
                 padding: 1rem 0rem;
             }
             p {
@@ -446,7 +483,9 @@ main {
             }
         }
         .webdev-nr {
-            font-size: 8rem;
+                font-size: 10rem;
+                left: 53%;
+                bottom: 28.7%;
         }
         .webdev-image img {
             height: 50vh;
@@ -490,6 +529,27 @@ main {
                     padding-bottom: 1rem;
                     line-height: 1.5rem;
                 }
+            }
+        }
+        .detail-slide {
+            width: 80%;
+            .webdev-text {
+                h1 {
+                    font-size: 4rem;
+                    padding: 1rem 0rem;
+                }
+                p {
+                    font-size: 1.1rem;
+                }
+            }
+            .webdev-nr {
+                    font-size: 10rem;
+                    left: 53%;
+                    bottom: 28.7%;
+            }
+            .webdev-image img {
+                height: 50vh;
+                object-position: top;
             }
         }
     }
@@ -545,6 +605,9 @@ main {
             .home-img {
                 height: 30%;
                 // padding-top: 4rem;
+                img {
+                    border-radius: 0;
+                }
             }
             .jumbo-description {
                 padding: 5rem;
@@ -580,10 +643,12 @@ main {
         text-align: center;
         .webdev-text {
             h1 {
-                margin: 2rem 0rem;
+                margin: 1rem 0rem;
+                margin-bottom: 0rem;
             }
             p {
-                margin-bottom: 5rem;
+                font-size: 1rem;
+                margin-bottom: 1rem;
                 padding: 0;
             }
         }
@@ -637,6 +702,27 @@ main {
                 }
             }
         }
+        .detail-slide {
+            width: 100;
+            .webdev-text {
+                h1 {
+                    font-size: 2rem;
+                    padding: 1rem 0rem;
+                }
+                p {
+                    font-size: 1rem;
+                }
+            }
+            .webdev-nr {
+                font-size: 5rem;
+                left: 68%;
+                bottom: 13.7%;
+            }
+            .webdev-image img {
+                height: 50vh;
+                object-position: top;
+            }
+        }
     }
 }
 
@@ -670,6 +756,11 @@ main {
                         text-align: center;
                     }
                 }
+            }
+        }
+        .detail-slide {
+            .webdev-nr {
+                bottom: 5.7%;
             }
         }
     }
