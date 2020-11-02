@@ -190,6 +190,17 @@ barba.init({
                 controller.destroy();
                 detailScene.destroy();
             }
+        },
+        { 
+            namespace: 'design',
+            beforeEnter(){
+                logo.href = "../index.html";
+                detailAnimation();
+            },
+            beforeLeave(){
+                controller.destroy();
+                detailScene.destroy();
+            }
         }
     ],
     transitions: [
