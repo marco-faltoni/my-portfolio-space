@@ -327,7 +327,8 @@ main {
 
 /* Other Pages */
 
-.webdev1, .webdev2, .webdev3 {
+
+.webdev1, .webdev2, .webdev3, .webdev4, .webdev5, .webdev6 {
     height: 100vh;
     // display : flex;
     // justify-content: center;
@@ -362,7 +363,7 @@ main {
         justify-content: flex-start;
         // align-items: flex-start;
         flex-wrap: wrap;
-        flex: 1;
+        // flex: 1;
         // flex-basis: 25rem;
         h1 {
             font-size: 6rem;
@@ -435,7 +436,16 @@ main {
     color: #917cdd;
 }
 .webdev3 h1 {
+    color: #cf1b57;
+}
+.webdev4 h1 {
     color: #51c57e;
+}
+.webdev5 h1 {
+    color: #6ae2c4;
+}
+.webdev6 h1 {
+    color: #e1a1f5;
 }
 
 .swipe {
@@ -509,7 +519,7 @@ main {
                 grid-row: 2/3;
                 align-self: flex-end;
         }
-        .webdev-image img {
+        .webdev-image {
             height: 50vh;
             object-position: top;
         }
@@ -661,7 +671,7 @@ main {
     }
 
     .detail-slide {
-        width: 100%;
+        width: 80%;
         text-align: center;
         display : flex;
         flex-direction: column;
@@ -673,6 +683,8 @@ main {
             h1 {
                 margin: 1rem 0rem;
                 margin-bottom: 0rem;
+                font-size: 4rem;
+                font-style: italic;
             }
             p {
                 font-size: 1rem;
@@ -690,13 +702,13 @@ main {
             }
         }
         .webdev-image {
-            height: 66vh;
+            height: 60vh;
             // flex-basis: 30rem;
         }
         .webdev-nr {
             position: absolute;
-            left: 57%;
-            bottom: 8.7%;
+            left: 83%;
+            bottom: 4.7%;
             font-size: 8rem;
             grid-column: 1/2;
             grid-row: 2;
@@ -749,7 +761,7 @@ main {
             }
         }
         .detail-slide {
-            width: 100;
+            width: 80%;
             flex-direction: row;
 
             .webdev-text {
@@ -771,7 +783,7 @@ main {
             .webdev-nr {
                 font-size: 5rem;
                 left: 68%;
-                bottom: -2.3%;
+                bottom: 4%;
             }
             .webdev-image {
                 flex-basis: 30rem;
