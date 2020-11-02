@@ -431,6 +431,19 @@ main {
     
 }
 
+.design1, .design2, .design3 {
+    .webdev-text {
+        h1 {
+            font-size: 4rem;
+            padding: 1rem 0rem;
+        }
+        p {
+            font-size: 1.4rem;
+            
+        }
+    }
+}
+
 .webdev1 h1, .design1 h1 {
     color: #517FC5;
 }
