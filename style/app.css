@@ -427,6 +427,7 @@ main {
       grid-template-rows: 1fr 2fr 2fr 1fr;
   width: 80%;
   margin: auto;
+  padding-top: 1rem;
   color: whitesmoke;
   margin-top: 5rem;
   position: relative;
@@ -543,7 +544,7 @@ main {
       justify-self: end;
   color: whitesmoke;
   font-size: 15rem;
-  opacity: 0.3;
+  opacity: 0.5;
   font-weight: 300;
 }
 
@@ -564,7 +565,7 @@ main {
 }
 
 .webdev5 h1 {
-  color: #6ae2c4;
+  color: #e6a76d;
 }
 
 .webdev6 h1 {
@@ -761,6 +762,7 @@ main {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    padding-top: 0;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }

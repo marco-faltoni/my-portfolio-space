@@ -1,3 +1,6 @@
+var edgeOffset = 50; // px
+zenscroll.setup(null, edgeOffset);
+
 let controller;
 let sildeScene;
 let pageScene;
@@ -150,7 +153,7 @@ function navToggle(e) {
             } else {
                 gsap.to('.nav-bar', 1, {  clipPath: 'circle(20px at 88.5% 5%)'});
             }
-            gsap.to('.nav-bar', 2, {  opacity:0}, '+=2');
+            gsap.to('.nav-bar', 1.8, {  opacity:0}, '+=2');
             lineHam.setAttribute('d', 'm 45,50 h 40');
             burger.classList.remove('active');
             gsap.to('.logo', 1.2, {color: 'whitesmoke'});
@@ -192,11 +195,21 @@ barba.init({
     transitions: [
         {
             leave({current, next}){
+                let navbar = document.querySelector('.nav-bar');
+                if (navbar.style.opacity == 1) {
+                    gsap.to('.nav-bar', 1, {  clipPath: 'circle(20px at 88.5% 5%)'});
+                    gsap.to('.nav-bar', 1.8, {  opacity:0}, '+=2');
+                    burger.classList.remove('active');
+                    document.body.classList.remove('hide');
+                    gsap.to('.logo', 1.2, {color: 'whitesmoke'});
+                }
                 let done = this.async();
                 // an animation
                 const tl = gsap.timeline({defaults: {duration:1, ease: 'power2.inOut'}});
                 tl.fromTo(current.container, 1, {opacity: 1}, {opacity: 0});
                 tl.fromTo('.swipe', 0.75, {x: '-100%'}, {x: '0%', onComplete: done}, '-=0.5');
+                
+                
             },
             enter({current, next}){
                 let done = this.async();
