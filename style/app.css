@@ -417,7 +417,7 @@ main {
 }
 
 /* Other Pages */
-.webdev1, .webdev2, .webdev3, .webdev4, .webdev5, .webdev6 {
+.detail-slide {
   height: 100vh;
   display: -ms-grid;
   display: grid;
@@ -433,7 +433,7 @@ main {
   position: relative;
 }
 
-.webdev1 .webdev-image, .webdev2 .webdev-image, .webdev3 .webdev-image, .webdev4 .webdev-image, .webdev5 .webdev-image, .webdev6 .webdev-image {
+.detail-slide .webdev-image {
   height: 70vh;
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
@@ -443,14 +443,14 @@ main {
   grid-row: 1/4;
 }
 
-.webdev1 .webdev-image img, .webdev2 .webdev-image img, .webdev3 .webdev-image img, .webdev4 .webdev-image img, .webdev5 .webdev-image img, .webdev6 .webdev-image img {
+.detail-slide .webdev-image img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.webdev1 .webdev-text, .webdev2 .webdev-text, .webdev3 .webdev-text, .webdev4 .webdev-text, .webdev5 .webdev-text, .webdev6 .webdev-text {
+.detail-slide .webdev-text {
   position: relative;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -472,20 +472,20 @@ main {
       flex-wrap: wrap;
 }
 
-.webdev1 .webdev-text h1, .webdev2 .webdev-text h1, .webdev3 .webdev-text h1, .webdev4 .webdev-text h1, .webdev5 .webdev-text h1, .webdev6 .webdev-text h1 {
-  font-size: 6rem;
+.detail-slide .webdev-text h1 {
+  font-size: 5rem;
   padding-bottom: 5rem;
   font-weight: 300;
 }
 
-.webdev1 .webdev-text p, .webdev2 .webdev-text p, .webdev3 .webdev-text p, .webdev4 .webdev-text p, .webdev5 .webdev-text p, .webdev6 .webdev-text p {
+.detail-slide .webdev-text p {
   font-size: 2rem;
   padding: 2rem 2rem 0rem 0rem;
   margin-bottom: 5rem;
   font-weight: 300;
 }
 
-.webdev1 .webdev-text .buttons, .webdev2 .webdev-text .buttons, .webdev3 .webdev-text .buttons, .webdev4 .webdev-text .buttons, .webdev5 .webdev-text .buttons, .webdev6 .webdev-text .buttons {
+.detail-slide .webdev-text .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -495,7 +495,7 @@ main {
   margin-bottom: 2rem;
 }
 
-.webdev1 .webdev-text .buttons .explore, .webdev2 .webdev-text .buttons .explore, .webdev3 .webdev-text .buttons .explore, .webdev4 .webdev-text .buttons .explore, .webdev5 .webdev-text .buttons .explore, .webdev6 .webdev-text .buttons .explore {
+.detail-slide .webdev-text .buttons .explore {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -518,22 +518,22 @@ main {
   cursor: pointer;
 }
 
-.webdev1 .webdev-text .buttons .explore p, .webdev2 .webdev-text .buttons .explore p, .webdev3 .webdev-text .buttons .explore p, .webdev4 .webdev-text .buttons .explore p, .webdev5 .webdev-text .buttons .explore p, .webdev6 .webdev-text .buttons .explore p {
+.detail-slide .webdev-text .buttons .explore p {
   padding: 0;
   font-size: 1.2rem;
   margin-bottom: 0;
 }
 
-.webdev1 .webdev-text .buttons .explore img, .webdev2 .webdev-text .buttons .explore img, .webdev3 .webdev-text .buttons .explore img, .webdev4 .webdev-text .buttons .explore img, .webdev5 .webdev-text .buttons .explore img, .webdev6 .webdev-text .buttons .explore img {
+.detail-slide .webdev-text .buttons .explore img {
   height: 30px;
   margin-left: 0.5rem;
 }
 
-.webdev1 .webdev-text .buttons .two, .webdev2 .webdev-text .buttons .two, .webdev3 .webdev-text .buttons .two, .webdev4 .webdev-text .buttons .two, .webdev5 .webdev-text .buttons .two, .webdev6 .webdev-text .buttons .two {
+.detail-slide .webdev-text .buttons .two {
   margin-left: 1rem;
 }
 
-.webdev1 .webdev-nr, .webdev2 .webdev-nr, .webdev3 .webdev-nr, .webdev4 .webdev-nr, .webdev5 .webdev-nr, .webdev6 .webdev-nr {
+.detail-slide .webdev-nr {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
@@ -548,15 +548,15 @@ main {
   font-weight: 300;
 }
 
-.webdev1 h1 {
+.webdev1 h1, .design1 h1 {
   color: #517FC5;
 }
 
-.webdev2 h1 {
+.webdev2 h1, .design2 h1 {
   color: #917cdd;
 }
 
-.webdev3 h1 {
+.webdev3 h1, .design3 h1 {
   color: #cf1b57;
 }
 
@@ -570,6 +570,10 @@ main {
 
 .webdev6 h1 {
   color: #e1a1f5;
+}
+
+.design1 .webdev-text h1, .design2 .webdev-text h1, .design3 .webdev-text h1 {
+  font-size: 4rem;
 }
 
 .swipe {
@@ -640,6 +644,10 @@ main {
     height: 50vh;
     -o-object-position: top;
        object-position: top;
+  }
+  .design1 .webdev-text h1, .design2 .webdev-text h1, .design3 .webdev-text h1 {
+    font-size: 4rem;
+    padding: 1rem 0rem;
   }
 }
 
