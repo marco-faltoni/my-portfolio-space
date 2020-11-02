@@ -555,6 +555,7 @@ main {
 
 .design1 .webdev-text p, .design2 .webdev-text p, .design3 .webdev-text p {
   font-size: 1.4rem;
+  margin-bottom: 2rem;
 }
 
 .webdev1 h1, .design1 h1 {
@@ -657,6 +658,9 @@ main {
   .design1 .webdev-text h1, .design2 .webdev-text h1, .design3 .webdev-text h1 {
     font-size: 4rem;
     padding: 1rem 0rem;
+  }
+  .design1 .webdev-text p, .design2 .webdev-text p, .design3 .webdev-text p {
+    margin-bottom: 2rem;
   }
 }
 
