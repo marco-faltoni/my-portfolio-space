@@ -474,7 +474,7 @@ main {
 
 .detail-slide .webdev-text h1 {
   font-size: 5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
   font-weight: 300;
 }
 
@@ -543,7 +543,7 @@ main {
   -ms-grid-column-align: end;
       justify-self: end;
   color: whitesmoke;
-  font-size: 15rem;
+  font-size: 12rem;
   opacity: 0.5;
   font-weight: 300;
 }
